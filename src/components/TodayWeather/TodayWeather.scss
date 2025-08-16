@@ -1,0 +1,22 @@
+.today-weather {
+  &__inner {
+  }
+  &__city {
+  }
+  &__img-precipitation {
+    margin: auto;
+    display: block;
+  }
+  &__temperature {
+    &-current {
+    }
+    &-min-max {
+    }
+    &-min {
+    }
+    &-max {
+    }
+  }
+  &__text-precipitation {
+  }
+}
