@@ -5,7 +5,7 @@
 $max-Width: 1400;
 $min-Width: 360;
 
-@mixin fluid-text($max: 56, $min: 16) {
+@mixin fluid-size($max: 56, $min: 16, $result: "fs") {
   $maxViewportWidth: $max-Width;
   $minViewportWidth: $min-Width;
 
@@ -19,10 +19,17 @@ $min-Width: 360;
 
   $slope: math.div($slope-1, $slope-2);
   $yAxisIntersection: -$minWidth * $slope + $minSize;
-
-  font-size: clamp(
-    #{$minSize * 1rem},
-    #{$yAxisIntersection * 1rem} + #{$slope * 100vw},
-    #{$maxSize * 1rem}
-  );
+  @if ($result == "h") {
+    height: clamp(
+      #{$minSize * 1rem},
+      #{$yAxisIntersection * 1rem} + #{$slope * 100vw},
+      #{$maxSize * 1rem}
+    );
+  } @else {
+    font-size: clamp(
+      #{$minSize * 1rem},
+      #{$yAxisIntersection * 1rem} + #{$slope * 100vw},
+      #{$maxSize * 1rem}
+    );
+  }
 }

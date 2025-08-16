@@ -1,7 +1,10 @@
+@import "./styles/_fonts.scss";
+
 :root {
   margin: auto;
   text-align: center;
-  font-family: sans-serif;
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
   background-color: #242424;
   color: white;
 }

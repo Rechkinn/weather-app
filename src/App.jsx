@@ -62,7 +62,7 @@ export default function App() {
     }
   });
 
-  // console.log(weather);
+  console.log(weather);
   // console.dir(error);
 
   return (

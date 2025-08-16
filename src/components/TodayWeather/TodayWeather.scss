@@ -1,20 +1,60 @@
+@use "sass:math";
+@import "../../styles/mixin";
+
 .today-weather {
   &__inner {
+    margin: auto;
+    max-width: 1400px;
   }
   &__city {
+    // 90 , 45
+    @include fluid-size(60, 45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   &__img-precipitation {
-    margin: auto;
-    display: block;
+    // @include fluid-size(60, 30, "h");
+    object-fit: contain;
   }
   &__temperature {
+    $font-size-current-max: 120;
+    $font-size-current-min: math.div($font-size-current-max, 2);
+
     &-current {
+      padding: 50px 0;
+      @include fluid-size($font-size-current-max, $font-size-current-min);
+    }
+    &-current::after {
+      content: "°C";
+      @include fluid-size($font-size-current-max, $font-size-current-min);
     }
     &-min-max {
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      @include fluid-size(
+        math.div($font-size-current-min, 2),
+        math.div($font-size-current-min, 3)
+      );
     }
     &-min {
     }
+    &-min::after {
+      content: "°C";
+      @include fluid-size(
+        math.div($font-size-current-min, 2),
+        math.div($font-size-current-min, 3)
+      );
+    }
     &-max {
+    }
+    &-max::after {
+      content: "°C";
+      @include fluid-size(
+        math.div($font-size-current-min, 2),
+        math.div($font-size-current-min, 3)
+      );
     }
   }
   &__text-precipitation {
