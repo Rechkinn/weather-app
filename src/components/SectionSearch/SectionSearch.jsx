@@ -1,10 +1,10 @@
-import "./Search.scss";
+import "./SectionSearch.scss";
 
 function getCity() {
   document.dispatchEvent(new CustomEvent("searchWeather", { bubbles: true }));
 }
 
-export default function Input() {
+export default function SectionSearch() {
   return (
     <section className="search">
       <div className="search__inner">

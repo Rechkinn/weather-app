@@ -1,6 +1,6 @@
-import "./TodayWeather.scss";
+import "./SectionTodayWeather.scss";
 
-export default function TodayWeather({ weather }) {
+export default function SectionTodayWeather({ weather, weekDay }) {
   const nowDay = weather?.forecast?.forecastday;
 
   return (
@@ -22,19 +22,24 @@ export default function TodayWeather({ weather }) {
           </span>
         </div>
 
-        <div className="today-weather__temperature-min-max">
+        {/* <div className="today-weather__temperature-min-max">
           <span className="today-weather__temperature-min">
             {Math.round(nowDay[0].day.mintemp_c)}
           </span>
-          /
+
           <span className="today-weather__temperature-max">
             {Math.round(nowDay[0].day.maxtemp_c)}
           </span>
+        </div> */}
+
+        <div className="today-weather__weekday">
+          <span className="today-weather__weekday-value">{weekDay}</span>
         </div>
 
         <span className="today-weather__text-precipitation">
           {weather?.current?.condition?.text}
         </span>
+        <hr className="today-weather__hr" />
       </div>
     </section>
   );

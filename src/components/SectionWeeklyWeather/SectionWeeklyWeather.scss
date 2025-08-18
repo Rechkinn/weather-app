@@ -1,0 +1,13 @@
+@use "../../styles/mixin" as mixin;
+.weekly-weather {
+  padding-bottom: 15px;
+  &__inner {
+    display: flex;
+    justify-content: center;
+    // flex-wrap: wrap;
+
+    @include mixin.media-900() {
+      display: block;
+    }
+  }
+}

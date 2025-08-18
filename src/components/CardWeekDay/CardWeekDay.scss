@@ -1,0 +1,47 @@
+@use "../../styles/mixin" as mixin;
+
+.card-weekday {
+  // margin-right: 30px;
+  margin: 0 15px;
+  @include mixin.media-900() {
+    margin-bottom: 30px;
+  }
+
+  &__inner {
+    @include mixin.media-900() {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+  }
+  &__weekday {
+    min-width: 90px;
+  }
+  &__weekday-value {
+    @include mixin.fluid-size(20, 14);
+  }
+  &__precipitation-icon {
+    margin: auto;
+  }
+  &__temperature-max-min {
+    min-width: 100px;
+  }
+  &__temperature-max::after {
+    content: "°C - ";
+    // @include mixin.fluid-size(
+    //   math.div($font-size-current-min, 2),
+    //   math.div($font-size-current-min, 3)
+    // );
+  }
+  &__temperature-min::after {
+    content: "°C";
+    // @include mixin.fluid-size(
+    //   math.div($font-size-current-min, 2),
+    //   math.div($font-size-current-min, 3)
+    // );
+  }
+  &__date {
+    min-width: 55px;
+  }
+}

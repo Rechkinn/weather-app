@@ -1,3 +1,5 @@
+@use "../../styles/mixin" as mixin;
+
 .search {
   $wh: 30px;
   $padding: 2.5px;
@@ -11,9 +13,6 @@
 
   &__wrapper {
     position: relative;
-    // display: flex;
-    // justify-content: space-between;
-    // align-items: center;
 
     margin: auto;
     padding: $padding;
@@ -26,7 +25,6 @@
     padding: 0 $wh 0 calc($padding * 2);
     width: 100%;
     height: $wh;
-    // background-color: blue;
     border: 0;
     border-radius: 1000px;
   }
@@ -34,19 +32,16 @@
     position: absolute;
     right: $padding;
 
-    background-color: transparent;
-    border: 0;
-    border-radius: 50%;
-    // padding: 0;
-    // $wh: 30px;
-
     width: $wh;
     height: $wh;
-    // background-color: rgb(212, 212, 212);
+    background-color: transparent;
     background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/980px-Magnifying_glass_icon.svg.png);
-  }
-  &__button:hover {
-    background-color: rgb(214, 214, 214);
-    transition: all 300ms;
+    border: 0;
+    border-radius: 50%;
+
+    @include mixin.hover-or-active {
+      background-color: rgb(214, 214, 214);
+      transition: all 300ms;
+    }
   }
 }

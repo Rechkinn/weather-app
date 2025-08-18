@@ -1,0 +1,75 @@
+@use "sass:math";
+@use "../../styles/mixin" as mixin;
+
+.today-weather {
+  $font-size-current-max: 120;
+  $font-size-current-min: math.div($font-size-current-max, 2);
+
+  &__inner {
+    margin: auto;
+    padding: 0 30px;
+    max-width: 1400px;
+  }
+  &__city {
+    // 90 , 45
+    @include mixin.fluid-size(60, 45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__img-precipitation {
+    // @include mixin.fluid-size(60, 30, "h");
+    object-fit: contain;
+  }
+  &__temperature {
+    // $font-size-current-max: 120;
+    // $font-size-current-min: math.div($font-size-current-max, 2);
+
+    &-current {
+      padding: 10px 0;
+      @include mixin.fluid-size($font-size-current-max, $font-size-current-min);
+    }
+    &-current::after {
+      content: "°C";
+      @include mixin.fluid-size($font-size-current-max, $font-size-current-min);
+    }
+    &-min-max {
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      @include mixin.fluid-size(
+        math.div($font-size-current-min, 2),
+        math.div($font-size-current-min, 3)
+      );
+    }
+    &-min {
+    }
+    &-min::after {
+      content: "°C/";
+      @include mixin.fluid-size(
+        math.div($font-size-current-min, 2),
+        math.div($font-size-current-min, 3)
+      );
+    }
+    &-max {
+    }
+    &-max::after {
+      content: "°C";
+      @include mixin.fluid-size(
+        math.div($font-size-current-min, 2),
+        math.div($font-size-current-min, 3)
+      );
+    }
+  }
+  &__text-precipitation,
+  &__weekday-value {
+    @include mixin.fluid-size(
+      math.div($font-size-current-max, 4),
+      math.div($font-size-current-max, 5)
+    );
+  }
+  &__hr {
+    margin-top: 50px;
+    max-width: 850px;
+  }
+}

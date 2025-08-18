@@ -33,3 +33,30 @@ $min-Width: 360;
     );
   }
 }
+
+@mixin media-900() {
+  @media (max-width: 900px) {
+    @content;
+  }
+}
+
+@mixin hover-or-active {
+  // hover-устройства (обычно десктопы с мышью/трекпадом)
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+
+  // touch-устройства без hover (многие смартфоны/планшеты)
+  @media (hover: none) and (pointer: coarse) {
+    &:active {
+      @content;
+    }
+  }
+
+  // keyboard accessibility — показать эффект при фокусе (напр. таб)
+  &:focus-visible {
+    @content;
+  }
+}

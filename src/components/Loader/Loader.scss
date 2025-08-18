@@ -1,0 +1,44 @@
+@use "sass:math";
+
+@keyframes loading {
+  0% {
+    rotate: 0;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
+
+.loader {
+  &__inner {
+  }
+  &__circle {
+    $wh: 100px;
+
+    position: relative;
+    margin: auto;
+    width: $wh;
+    height: $wh;
+    border-radius: 50%;
+
+    border: 5px solid orange;
+    mask: conic-gradient(#0000, #000), content-box;
+
+    animation-name: loading;
+    animation-timing-function: linear;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+
+    &-inner {
+      $decrease-wh: 10px;
+
+      position: absolute;
+      top: math.div($decrease-wh, 2);
+      left: math.div($decrease-wh, 2);
+      width: calc($wh - $decrease-wh);
+      height: calc($wh - $decrease-wh);
+      border-radius: 50%;
+      background-color: #242424;
+    }
+  }
+}
